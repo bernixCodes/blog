@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Tesla New Cyberbeast!",
+      "summary": "Tesla Releases New Car! View details on the Cybertruck and maxed-out Cyberbeast",
+      "tagcolor": "tag-blue",
+      "tag": "Automobile",
+      "content": "Last week, Tesla dropped details on the Cybertruck and maxed-out Cyberbeast. After all that talk of supersized trucks, the North American release of the Fiat 500e buggy hits like a frosty mug of ice water.    Fiat owner, Stellantis, said it would bring the popular li’l EV to North America next year (it debuted in Europe in 2020). Today, we learned more about the 2024 500e for North America, including its starting price and initial availability.Tesla dropped details on the Cybertruck and maxed-out Cyberbeast. After all that talk of supersized trucks, the North American release of the Fiat 500e buggy hits like a frosty mug of ice water.    Fiat owner, Stellantis, said it would bring the popular li’l EV to NorthTesla dropped details on the Cybertruck and maxed-out Cyberbeast. After all that talk of supersized trucks, the North American release of the Fiat 500e buggy hits like a frosty mug of ice water.    Fiat owner, Stellantis, said it would bring the popular li’l EV to NorthTesla dropped details on the Cybertruck and maxed-out Cyberbeast. After all that talk of supersized trucks, the North American release of the Fiat 500e buggy hits like a frosty mug of ice water.    Fiat owner, Stellantis, said it would bring the popular li’l EV to NorthTesla dropped details on the Cybertruck and maxed-out Cyberbeast. After all that talk of supersized trucks, the North American release of the Fiat 500e buggy hits like a frosty mug of ice water.    Fiat owner, Stellantis, said it would bring the popular li’l EV to North",
+      "imageUrl": "https://shorturl.at/fowRV",
+      "authorImg": "https://i.pravatar.cc/40?img=2"
+    },
+    {
+      "id": 2,
+      "title": "Frontend Development",
+      "summary": "Hacks to learn Web Dev 2024 .  HTML, CSS, JavaScript, and SQL. ",
+      "tagcolor": "tag-red",
+      "tag": "Technology",
+      "content": "Web Development Master the languages of the web: HTML, CSS, JavaScript, and SQL. This path is great for budding front-end or back-end engineers!Includes JavaScript, Node.JS, SQL, Express.JS, React, TDD, and more.",
+      "imageUrl": "https://t.ly/PHock",
+      "authorImg": "https://i.pravatar.cc/40?img=1"
+    },
+
+    {
+      "id": 3,
+      "title": "World's Longest Cook",
+      "summary": "Hacks to learn Web Dev 2024 .  HTML, CSS, JavaScript, and SQL. ",
+      "tagcolor": "tag-brown",
+      "tag": "Food",
+      "content": "Web Development Master the languages of the web: HTML, CSS, JavaScript, and SQL. This path is great for budding front-end or back-end engineers!Includes JavaScript, Node.JS, SQL, Express.JS, React, TDD, and more.",
+      "imageUrl": "https://shorturl.at/tKMOW",
+      "authorImg": "https://i.pravatar.cc/40?img=4"
+    }
+  ]
+}

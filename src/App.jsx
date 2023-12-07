@@ -1,0 +1,40 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MainLayout from "./layouts/main/mainLayout";
+import Blog from "./pages/blog/index";
+import BlogDetail from "./pages/blogDetail/index";
+import User from "./pages/user/index";
+import "./App.css";
+import AddModal from "./components/blogs/addModal/index";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        path: "blog",
+        element: <Blog />,
+        loader: async () => {
+          const url = "http://localhost:3000/posts";
+          const response = await fetch(url);
+          const data = await response.json();
+          return data;
+        },
+        children: [{ path: "create-post", element: <AddModal /> }],
+      },
+      {
+        path: "blog/:blogId",
+        element: <BlogDetail />,
+      },
+      {
+        path: "users",
+        element: <User />,
+      },
+    ],
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
+}
+
+export default App;
