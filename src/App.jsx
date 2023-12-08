@@ -4,7 +4,7 @@ import Blog from "./pages/blog/index";
 import BlogDetail from "./pages/blogDetail/index";
 import User from "./pages/user/index";
 import "./App.css";
-import AddModal from "./components/blogs/addModal/index";
+import AddModal, { addPostAction } from "./components/blogs/addModal/index";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +19,13 @@ const router = createBrowserRouter([
           const data = await response.json();
           return data;
         },
-        children: [{ path: "create-post", element: <AddModal /> }],
+        children: [
+          {
+            path: "create-post",
+            element: <AddModal />,
+            action: addPostAction,
+          },
+        ],
       },
       {
         path: "blog/:blogId",

@@ -6,8 +6,6 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  margin: 1px 0;
-  /* padding: 1px; */
   justify-content: center;
 }
 
@@ -21,9 +19,10 @@ a {
 .addpost {
   color: orangered;
   cursor: pointer;
-  margin: 1rem;
+  margin: 1rem ;
   position: absolute;
   right: 0;
+ 
 }
 
 .card {
@@ -36,6 +35,8 @@ a {
   background: #ece9e6;
   background: linear-gradient(to right, #ffffff, #ece9e6);
   cursor: pointer;
+margin-top: 3rem;
+
 }
 
 .card-body {
@@ -93,6 +94,7 @@ a {
 .user__info > small {
   color: #666;
 }
+
 
 @media screen and (min-width: 768px) {
   .card {

@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 
-form {
+.form {
   margin-top: 2rem;
   width: 60%;
 }
@@ -40,6 +40,7 @@ form {
   justify-content: space-between;
   margin: 0 0 20px;
 }
+
 
 .form-group:last-child {
   margin: 0;
@@ -57,7 +58,7 @@ form {
 }
 
 .form-group input,
-textarea {
+textarea, select {
   outline: none;
   display: block;
   width: 100%;
@@ -93,4 +94,12 @@ textarea {
   line-height: inherit;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.select{
+  flex: 1;
+}
+
+.ml-1{
+  margin-left: 1rem;
 }
