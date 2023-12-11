@@ -1,7 +1,8 @@
-import { Form } from "react-router-dom";
 import "./index.css";
+import { useEffect, useState } from "react";
+import { Form, useParams } from "react-router-dom";
 
-const handleAddPost = async (e) => {
+const handleEditPost = async (e, blogId) => {
   e.preventDefault();
   let formData = new FormData(e.target);
   let data = {
@@ -12,39 +13,67 @@ const handleAddPost = async (e) => {
     tag: formData.get("tag"),
     imageUrl: "https://shorturl.at/tKMOW",
     authorImg: "https://i.pravatar.cc/40?img=1",
+    id: blogId,
   };
   console.log(data);
-  await addPostAction(data);
+  await editPost(data);
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const addPostAction = async (data) => {
-  const url = "http://localhost:3000/posts";
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  const res = await response.json();
-  console.log(res);
-  window.location.href = "/blog";
-  return res;
+export const editPost = async (data) => {
+  try {
+    const url = `http://localhost:3000/posts/${data.id}`;
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const res = await response.json();
+    console.log("Successfully updated:", res);
+    window.location.href = "/blog";
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default function Index() {
+  const { blogId } = useParams();
+  console.log("blogId", blogId);
+
+  // const navigation = useNavigate();
+
+  const [post, setDetail] = useState({});
+  useEffect(() => {
+    const url = `http://localhost:3000/posts/${blogId}`;
+
+    const postDetails = async () => {
+      const response = await fetch(url);
+      const data = await response.json();
+      setDetail(data);
+      return data;
+    };
+    postDetails();
+  }, [blogId]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setDetail((prevPost) => ({
+      ...prevPost,
+      [name]: value,
+    }));
+  };
   return (
     <>
       <div className="wrapper">
         <div className="modal">
-          <h1>Add Post</h1>
+          <h1>Edit Post</h1>
 
           <Form
             method="post"
-            action="/blog/create-post"
-            onSubmit={handleAddPost}
+            onSubmit={(e) => handleEditPost(e, blogId)}
             className="form"
           >
             <div className="form-group">
@@ -54,6 +83,8 @@ export default function Index() {
                 id="title"
                 placeholder="Title"
                 name="title"
+                value={post.title}
+                onChange={handleInputChange}
                 required="required"
               />
             </div>
@@ -61,7 +92,11 @@ export default function Index() {
             <div className="form-group">
               <div className="select">
                 <label htmlFor="tag">Tag</label>
-                <select name="tag">
+                <select
+                  name="tag"
+                  value={post.tag}
+                  onChange={handleInputChange}
+                >
                   <option value={"Technology"}>Technology</option>
                   <option value={"Automobile"}>Automobile</option>
                   <option value={"Food"}>Food</option>
@@ -70,7 +105,11 @@ export default function Index() {
 
               <div className="select ml-1">
                 <label htmlFor="tag">Tag Color</label>
-                <select name="tagcolor">
+                <select
+                  name="tagcolor"
+                  value={post.tagcolor}
+                  onChange={handleInputChange}
+                >
                   <option value={"tag-brown"}>Brown</option>
                   <option value={"tag-blue"}>Blue</option>
                   <option value={"tag-red"}>Red</option>
@@ -89,7 +128,12 @@ export default function Index() {
             </div> */}
             <div className="form-group">
               <label htmlFor="summary">Summary</label>
-              <textarea name="summary" placeholder="Post Summary"></textarea>
+              <textarea
+                name="summary"
+                value={post.summary}
+                placeholder="Post Summary"
+                onChange={handleInputChange}
+              ></textarea>
             </div>
 
             <div className="form-group">
@@ -98,11 +142,13 @@ export default function Index() {
                 placeholder="Post Content"
                 name="content"
                 rows={15}
+                value={post.content}
+                onChange={handleInputChange}
               ></textarea>
             </div>
 
             <div className="form-group">
-              <button type="submit">Add Post</button>
+              <button type="submit">Edit Post</button>
             </div>
           </Form>
           <a href="/blog" className="modal__close">

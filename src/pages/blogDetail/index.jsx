@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import "./index.css";
 
 export default function Index() {
   const { blogId } = useParams();
-  console.log(blogId);
+  // console.log(blogId);
 
   const navigation = useNavigate();
 
@@ -22,15 +22,24 @@ export default function Index() {
   }, [blogId]);
   return (
     <>
-      <div className="btn-div">
-        <button
-          className="go-back"
-          onClick={() => {
-            navigation(-1);
-          }}
-        >
-          &#9664;
-        </button>
+      <Outlet />
+      <div className="details-header">
+        <div className="btn-div">
+          <button
+            className="go-back"
+            onClick={() => {
+              navigation(-1);
+            }}
+          >
+            &#9664;
+          </button>
+        </div>
+        <div className="action-btns">
+          <Link to={"edit"}>
+            <button>Edit</button>
+          </Link>
+          <button>Delete</button>
+        </div>
       </div>
       <div className="detail-container">
         <div className="card-detail">

@@ -4,7 +4,8 @@ import Blog from "./pages/blog/index";
 import BlogDetail from "./pages/blogDetail/index";
 import User from "./pages/user/index";
 import "./App.css";
-import AddModal, { addPostAction } from "./components/blogs/addModal/index";
+import AddModal, { addPostAction } from "./components/blogs/AddModal/index";
+import EditModal, { editPost } from "./components/blogs/EditModal/index";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +31,13 @@ const router = createBrowserRouter([
       {
         path: "blog/:blogId",
         element: <BlogDetail />,
+        children: [
+          {
+            path: "edit",
+            element: <EditModal />,
+            action: editPost,
+          },
+        ],
       },
       {
         path: "users",
@@ -44,3 +52,7 @@ function App() {
 }
 
 export default App;
+
+
+// run server with this code
+// json-server --watch data/posts.json

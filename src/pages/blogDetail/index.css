@@ -107,6 +107,32 @@ a {
   border: 1px solid orangered;
 }
 
+.details-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action-btns{
+  padding: 0 3rem;
+}
+
+.action-btns button{
+  background: orangered;
+  outline: none;
+  border: 0;
+  padding: 0.5rem 2rem;
+  color: white;
+  border-radius: 50px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.action-btns button:hover{
+  color: orangered;
+  background: white;
+  border: 1px solid orangered;
+}
 @media screen and (min-width: 768px) {
   .card-detail {
     width: 70vw;
