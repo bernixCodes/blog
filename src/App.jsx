@@ -6,6 +6,7 @@ import User from "./pages/user/index";
 import "./App.css";
 import AddModal, { addPostAction } from "./components/blogs/AddModal/index";
 import EditModal, { editPost } from "./components/blogs/EditModal/index";
+import DeleteModal from "./components/blogs/DeleteModal/index";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             path: "edit",
             element: <EditModal />,
             action: editPost,
+          },
+          {
+            path: "delete",
+            element: <DeleteModal />,
           },
         ],
       },

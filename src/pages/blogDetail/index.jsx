@@ -38,7 +38,9 @@ export default function Index() {
           <Link to={"edit"}>
             <button>Edit</button>
           </Link>
-          <button>Delete</button>
+          <Link to={"delete"}>
+            <button>Delete</button>
+          </Link>
         </div>
       </div>
       <div className="detail-container">

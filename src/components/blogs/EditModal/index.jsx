@@ -15,7 +15,6 @@ const handleEditPost = async (e, blogId) => {
     authorImg: "https://i.pravatar.cc/40?img=1",
     id: blogId,
   };
-  console.log(data);
   await editPost(data);
 };
 
@@ -41,9 +40,6 @@ export const editPost = async (data) => {
 
 export default function Index() {
   const { blogId } = useParams();
-  console.log("blogId", blogId);
-
-  // const navigation = useNavigate();
 
   const [post, setDetail] = useState({});
   useEffect(() => {

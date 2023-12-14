@@ -1,4 +1,7 @@
 import "./index.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useLoaderData, Link, Outlet } from "react-router-dom";
 export default function Index() {
   const posts = useLoaderData();
@@ -6,7 +9,15 @@ export default function Index() {
   return (
     <>
       <Outlet />
-
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar
+        closeOnClick
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Link to={"create-post"}>
         <h3 className="addpost">Add Post</h3>
       </Link>
