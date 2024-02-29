@@ -34,7 +34,7 @@ Welcome to the my React Blog App repository! This project is a basic blog applic
 
 2. Navigate to the project directory:
    ```bash
-   cd react-blog-app
+   cd blog
    ```
 
 3. Install dependencies:
