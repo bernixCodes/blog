@@ -29,7 +29,7 @@ Welcome to the my React Blog App repository! This project is a basic blog applic
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/react-blog-app.git
+   git clone https://github.com/bernixCodes/blog.git
    ```
 
 2. Navigate to the project directory:
